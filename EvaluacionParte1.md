@@ -36,7 +36,25 @@ graph LR
     4 <--> 5
 ```
 
+---
+
+c. 
+
 # 2. Árboles B y su aplicación
+
+a. Un Árbol B es una estructura jerárquica y autobalanceada diseñada para 
+minimizar los accesos al disco y mantener los datos ordenados. Es recomendable 
+para sistemas de archivos (como el UNIX File System, donde es necesario 
+indexar grandes volúmenes de datos) o bases de datos (para crear índices que 
+permitan acceder a millones de registros en disco de forma rápida).
+
+---
+
+b. El código en C++ se encuentra en `parte1ejercicio2b.cpp`.
+
+---
+
+c.
 
 
 # 3. Montículos binarios y heap sort
