@@ -58,3 +58,27 @@ c.
 
 
 # 3. Montículos binarios y heap sort
+
+a. Un montículo binario se utiliza en la implementación de colas de prioridad,
+en planificadores de tareas en sistemas operativos (para extraer siempre el
+proceso de mayor prioridad en tiempo logarítmico y mantener el orden correcto
+tras cada inserción o eliminación), o en algoritmos que requieren una gran 
+cantidad de operaciones de decrease-key (como el algoritmo de Dijkstra).
+
+En un heap mínimo, el valor almacenado en cada nodo es menor o igual que el de 
+sus hijos, y la raíz contiene el elemento de menor prioridad. Mientras que en
+el heap máximo, el valor de cada nodo es mayor o igual que el de sus hijos, y 
+la raíz contiene el elemento de mayor prioridad.
+
+b. Para armar un proceso de heap sort, se tomará como arreglo inicial 
+`[4, 10, 3, 5, 1]` para ordenarlo de forma ascendente. 
+
+1. Primero se construye el heap máximo `[10, 5, 3, 4, 1]`. 
+2. Luego se intercambia la raíz `10` con el último elemento `1`, resultando 
+   `[1, 5, 3, 4, 10]`. 
+3. Se hace el reajuste para restaurar la propiedad de heap máximo quedando
+   `[5, 4, 3, 1, 10]`
+4. Se intercambia el `5` con el `1`: `[1, 3, 4, 5, 10]`
+5. Se reorganiza: `[4, 1, 3, 5, 10]`
+6. Se intercambia el `4` con el `3`: `[3, 1, 4, 5, 10]`
+7. Se intercambia el `3` con el `1`: `[1, 3, 4, 5, 10]`
