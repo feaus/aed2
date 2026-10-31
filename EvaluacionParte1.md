@@ -38,7 +38,79 @@ graph LR
 
 ---
 
-c. 
+c. Se le pasó el siguiente prompt a GPT-6 Luna:
+
+> Tengo el siguiente algoritmo BFS en C++:
+> `parte1ejercicio1b.cpp` 
+> Si es posible, optimizalo. De no ser posible una optimización, realizá una 
+> variación del mismo
+
+La respuesta de la IA fue la siguiente:
+
+> El BFS ya tiene complejidad óptima para recorrer el grafo: **\(O(V+E)\)**, 
+> donde \(V\) es el número de estaciones y \(E\) el número de conexiones. Sí se 
+> puede mejorar su diseño: pasar el grafo como referencia constante, obtener la 
+> cantidad de nodos directamente del vector y separar el recorrido de la 
+> impresión. Esta variación devuelve el orden de visita:
+> 
+> ```cpp
+> #include <iostream>
+> #include <queue>
+> #include <vector>
+> 
+> std::vector<int> BFS(const std::vector<std::vector<int>>& grafo, int inicio) {
+>     if (inicio < 0 || inicio >= static_cast<int>(grafo.size())) {
+>         return {}; // Inicio inválido
+>     }
+> 
+>     std::vector<bool> visitado(grafo.size(), false);
+>     std::queue<int> cola;
+>     std::vector<int> recorrido;
+> 
+>     visitado[inicio] = true;
+>     cola.push(inicio);
+> 
+>     while (!cola.empty()) {
+>         int nodo = cola.front();
+>         cola.pop();
+>         recorrido.push_back(nodo);
+> 
+>         for (int vecino : grafo[nodo]) {
+>             if (!visitado[vecino]) {
+>                 visitado[vecino] = true;
+>                 cola.push(vecino);
+>             }
+>         }
+>     }
+> 
+>     return recorrido;
+> }
+> 
+> int main() {
+>     std::vector<std::vector<int>> grafo(6);
+> 
+>     grafo[0] = {1, 2};
+>     grafo[1] = {0, 3};
+>     grafo[2] = {0, 4};
+>     grafo[3] = {1, 5};
+>     grafo[4] = {2, 5};
+>     grafo[5] = {3, 4};
+> 
+>     for (int estacion : BFS(grafo, 0)) {
+>         std::cout << "Visitando estación: " << estacion << '\n';
+>     }
+> 
+>     return 0;
+> }
+> ```
+> 
+> Para este grafo, el orden es `0, 1, 2, 3, 4, 5`. El resultado puede variar si 
+> cambia el orden de los vecinos en las listas de adyacencia. Esta versión 
+> también evita que `BFS` tenga que conocer de antemano el número de nodos.
+
+Si bien el código propuesto por GPT-6 no realiza cambios considerables al 
+algoritmo propuesto en términos de eficiencia, sí mejora el código para que sea
+más legible, más estable y siguiendo las mejores prácticas de C++.
 
 # 2. Árboles B y su aplicación
 
