@@ -126,7 +126,45 @@ b. El código en C++ se encuentra en `parte1ejercicio2b.cpp`.
 
 ---
 
-c.
+c. Se le hizo la siguiente pregunta a GPT-6:
+
+> Cuáles son las ventajas y desventajas de los árboles B frente a otras 
+> estructuras de datos?
+
+Y su respuesta fue:
+
+> Los **árboles B** son árboles de búsqueda equilibrados en los que cada nodo 
+> puede contener varias claves y tener muchos hijos. Su mayor ventaja aparece 
+> cuando los datos están en disco o en almacenamiento externo, porque permiten
+> encontrar y actualizar elementos con pocas lecturas.
+> 
+> | Estructura                      | Ventajas frente a un árbol B                                                          | Desventajas frente a un árbol B                                 |
+> |---------------------------------|---------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+> | Árbol binario de búsqueda común | Puede ser más sencillo de implementar                                                 | Puede desequilibrarse y degradarse a búsquedas lineales         |
+> | Árbol AVL o rojo-negro          | Suele ser más eficiente si los datos caben en memoria y los nodos tienen pocas claves | Tiene más niveles; puede requerir más accesos a disco           |
+> | Tabla hash                      | Búsqueda promedio muy rápida por clave exacta                                         | No mantiene los datos ordenados ni facilita consultas por rango |
+> | Arreglo ordenado                | Búsqueda rápida y acceso sencillo por índice                                          | Insertar o borrar suele exigir mover muchos elementos           |
+> 
+> **Ventajas principales:** mantienen el equilibrio, ofrecen búsqueda, 
+> inserción y borrado en tiempo \(O(\log n)\), y su gran ramificación reduce la
+> altura del árbol. Además, conservan las claves ordenadas, lo que facilita 
+> recorrerlas en orden y hacer consultas por intervalos.
+> 
+> **Desventajas:** su implementación es más compleja que la de estructuras
+> simples; las divisiones y fusiones de nodos complican las actualizaciones. 
+> En memoria, donde los accesos no son costosos como en disco, un árbol binario
+> equilibrado o una tabla hash puede resultar más conveniente. Y aunque un
+> árbol B permite recorridos ordenados, para búsquedas exclusivamente por 
+> igualdad una tabla hash suele ser más rápida en promedio.
+> 
+> En resumen: un árbol B suele ser una buena elección para **índices y 
+> conjuntos grandes almacenados en disco**; para datos pequeños en memoria o
+> búsquedas solo por clave exacta, otras estructuras pueden convenir más.
+
+La respuesta de GPT-6 está bastante completa y correcta. Es cierto que la 
+ventaja del Árbol B radica en su capacidad de agrupar muchas claves por nodo 
+para minimizar los accesos a disco. También es cierto que su complejidad de 
+implementación es mayor, y que el proceso de eliminación es complejo.
 
 
 # 3. Montículos binarios y heap sort
