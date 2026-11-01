@@ -192,3 +192,25 @@ b. Para armar un proceso de heap sort, se tomará como arreglo inicial
 5. Se reorganiza: `[4, 1, 3, 5, 10]`
 6. Se intercambia el `4` con el `3`: `[3, 1, 4, 5, 10]`
 7. Se intercambia el `3` con el `1`: `[1, 3, 4, 5, 10]`
+
+c. Se le consultó a GPT-6 Luna:
+
+> Cómo es la eficiencia de heap sort frente a otros algoritmos de ordenamiento?
+
+Y su respuesta fue:
+
+> Heap sort tiene complejidad **O(n log n)** en el peor, promedio y mejor caso,
+> y usa **O(1)** espacio adicional si se implementa en el propio arreglo. Eso
+> lo hace más predecible en tiempo que quicksort, cuyo peor caso es **O(n²)**,
+> y más ahorrador de memoria que merge sort, que suele requerir **O(n)** 
+> espacio extra.
+> 
+> La contrapartida es que heap sort suele ser más lento en la práctica que 
+> quicksort y no es estable: elementos con la misma clave pueden cambiar de 
+> orden relativo. En resumen, es buena opción cuando importan una garantía de 
+> tiempo **O(n log n)** y poca memoria; para velocidad práctica o estabilidad 
+> suelen convenir otros algoritmos, según el caso.
+
+La complejidad `O(n log n)` que menciona la IA es correcta. Su fundamentación 
+sobre que no es estable también es correcta, y sus recomendaciones de uso 
+también son muy precisos.
